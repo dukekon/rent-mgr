@@ -2,6 +2,3 @@ node_modules
 dist
 .idea
 .hbuilderx
-
-src/pages/bill
-src/pages/renters

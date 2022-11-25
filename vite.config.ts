@@ -1,3 +1,4 @@
+import { fileConfig } from './src/tmui/components/tm-upload/upload'
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import uni from '@dcloudio/vite-plugin-uni'
@@ -6,9 +7,13 @@ import uni from '@dcloudio/vite-plugin-uni'
 export default defineConfig({
   plugins: [uni()],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
+    alias: [
+      {
+        find: '@',
+        replacement: fileURLToPath(new URL('./src', import.meta.url))
+
+      }
+    ]
   },
   css: {
     preprocessorOptions: {

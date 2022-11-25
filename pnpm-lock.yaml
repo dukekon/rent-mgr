@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@dcloudio/types': ^3.0.19
+  '@dcloudio/types': ^3.0.20
   '@dcloudio/uni-app': 3.0.0-alpha-3061020221121002
   '@dcloudio/uni-app-plus': 3.0.0-alpha-3061020221121002
   '@dcloudio/uni-automator': 3.0.0-alpha-3061020221121002
@@ -20,7 +20,7 @@ specifiers:
   '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3061020221121002
   '@types/node': ^18.11.9
   echarts: ^5.4.0
-  pinia: ^2.0.25
+  pinia: ^2.0.26
   postcss: ^8.4.19
   sass: ^1.56.1
   typescript: ^4.9.3
@@ -29,7 +29,7 @@ specifiers:
   vue-i18n: ^9.2.2
 
 dependencies:
-  '@dcloudio/uni-app': 3.0.0-alpha-3061020221121002_lql55jahzhwaqppg67xy5egriy
+  '@dcloudio/uni-app': 3.0.0-alpha-3061020221121002_5a3sh6clomdjybtsubvzyy3lt4
   '@dcloudio/uni-app-plus': 3.0.0-alpha-3061020221121002_frjz3sus4jkmj2uem6ddky233y
   '@dcloudio/uni-components': 3.0.0-alpha-3061020221121002
   '@dcloudio/uni-h5': 3.0.0-alpha-3061020221121002_postcss@8.4.19+vue@3.2.45
@@ -42,12 +42,12 @@ dependencies:
   '@dcloudio/uni-mp-weixin': 3.0.0-alpha-3061020221121002_postcss@8.4.19+vue@3.2.45
   '@dcloudio/uni-quickapp-webview': 3.0.0-alpha-3061020221121002_postcss@8.4.19+vue@3.2.45
   echarts: 5.4.0
-  pinia: 2.0.25_mgnvym7yiazkylwwogi5r767ue
+  pinia: 2.0.26_mgnvym7yiazkylwwogi5r767ue
   vue: 3.2.45
   vue-i18n: 9.2.2_vue@3.2.45
 
 devDependencies:
-  '@dcloudio/types': 3.0.19
+  '@dcloudio/types': 3.0.20
   '@dcloudio/uni-automator': 3.0.0-alpha-3061020221121002_postcss@8.4.19+vue@3.2.45
   '@dcloudio/uni-cli-shared': 3.0.0-alpha-3061020221121002_postcss@8.4.19+vue@3.2.45
   '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061020221121002
@@ -344,8 +344,8 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
 
-  /@dcloudio/types/3.0.19:
-    resolution: {integrity: sha512-j5mmKskyAxGa3yD5s+M03mRJu6IjxesHJMsXLB3p4jhd2K8D1aqHB3XDrhwPRauOTrKkQSGF14bp8oQsS2t4tA==}
+  /@dcloudio/types/3.0.20:
+    resolution: {integrity: sha512-rZ4okvj3LCN77rzZWtQg/uQLL4DPl72XjNdmRxTXgboGpBYuyjJ9V9do87RkHNM0bA0l0RIUoy3nh7P6Exb3hA==}
 
   /@dcloudio/uni-app-plus/3.0.0-alpha-3061020221121002_frjz3sus4jkmj2uem6ddky233y:
     resolution: {integrity: sha512-phHqpY2AYLlc8ZVwNEX/Nwdyws5gHVi6rPGDVEww8PyrVPPfEnKQF44WXhIaY0emVkdW+7So6ZWkTF8jQwj3uA==}
@@ -387,12 +387,12 @@ packages:
     resolution: {integrity: sha512-CeR45ORky4eYMCci53xvcx4YfxNT+uuPdIoB7phjFVKCsgffI9LA8fK/f/7CT4/nCApKWLb+5NFqQUZewqTXCw==}
     dev: false
 
-  /@dcloudio/uni-app/3.0.0-alpha-3061020221121002_lql55jahzhwaqppg67xy5egriy:
+  /@dcloudio/uni-app/3.0.0-alpha-3061020221121002_5a3sh6clomdjybtsubvzyy3lt4:
     resolution: {integrity: sha512-IjN1DFxHDHQKkLywW+GNuvybahDFfctQ9PDaQS8RZLLOimgf36+w+2ak6A0HZnr3zXt1oEB6CgnoogDfnwH/4w==}
     peerDependencies:
       '@dcloudio/types': ^3.0.19
     dependencies:
-      '@dcloudio/types': 3.0.19
+      '@dcloudio/types': 3.0.20
       '@dcloudio/uni-cloud': 3.0.0-alpha-3061020221121002_postcss@8.4.19+vue@3.2.45
       '@dcloudio/uni-components': 3.0.0-alpha-3061020221121002
       '@dcloudio/uni-i18n': 3.0.0-alpha-3061020221121002
@@ -2113,8 +2113,8 @@ packages:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
 
-  /pinia/2.0.25_mgnvym7yiazkylwwogi5r767ue:
-    resolution: {integrity: sha512-3reAkjJ6bW2D5hZKRMS0c9rUbHVlsVyZd037xO0PJr2AuF/09RRSBnFLlJgmHF4Jx6dEoW/jZBOHTushY7IMlw==}
+  /pinia/2.0.26_mgnvym7yiazkylwwogi5r767ue:
+    resolution: {integrity: sha512-tSxZNUcMGxQOvKZRjPKXxd2+/2NZhRF/CoYVE/+K6uE/Z3v1Oi4fcQFpxu5nMB1dCchjXUZ+lz0tBxV5ntwmQQ==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
