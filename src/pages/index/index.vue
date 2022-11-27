@@ -1,5 +1,5 @@
 <template>
-  <view class="home bg-blue-50 h-screen">
+  <view class="home">
     <view class="header">
       <!--todo 搜索 -->
       <uni-search-bar :placeholder="searchTip" radius="25" cancelButton="none" />
@@ -7,12 +7,15 @@
         <uni-row>
           <!--todo 房屋简讯 -->
           <uni-col :span="8" class="house-info-item" v-for="(item, i) in houseInfo" :key="i">
-            <text class="house-info-item__value" selectable="false" space="false" decode="false">
-              {{ i }}
-            </text>
-            <text class="house-info-item__text" selectable="false" space="false" decode="false">
-              {{ item }}
-            </text>
+            <navigator class="nav" target="" url="/pages/list/renter" hover-class="navigator-hover"
+              open-type="navigate">
+              <text class="house-info-item__value" selectable="false" space="false" decode="false">
+                {{ i }}
+              </text>
+              <text class="house-info-item__text" selectable="false" space="false" decode="false">
+                {{ item }}
+              </text>
+            </navigator>
           </uni-col>
         </uni-row>
       </view>
@@ -34,11 +37,14 @@
       <!--todo 功能图标 -->
       <view class="icons">
         <view class="icons-item" v-for="(item, i) in icons" hover-class="none" :hover-stop-propagation="false" :key="i">
-          <image class="w-12 icons-item__icon" :src="item.url" mode="widthFix" lazy-load="false" binderror=""
-            bindload="" />
-          <text class="icons-item__text" selectable="false" space="false" decode="false">
-            {{ item.text }}
-          </text>
+          <navigator class="icon-link" target="" :url="item.url" hover-class="none" open-type="navigate"
+            :animation-duration="50">
+            <image class="w-12 icons-item__icon" :src="item.icon" mode="widthFix" lazy-load="false" binderror=""
+              bindload="" />
+            <text class="icons-item__text" selectable="false" space="false" decode="false">
+              {{ item.text }}
+            </text>
+          </navigator>
         </view>
       </view>
     </view>
@@ -61,20 +67,24 @@ const unpaidNotices = [
 
 const icons = [
   {
-    url: "/static/icons/renters@2x.png",
-    text: "租客"
+    icon: '/static/icons/renters@2x.png',
+    text: '租客',
+    url: '/pages/list/renter',
   },
   {
-    url: "/static/icons/bill@2x.png",
-    text: "账单"
+    icon: '/static/icons/bill@2x.png',
+    text: '账单',
+    url: '/pages/list/bill'
   },
   {
-    url: "/static/icons/water&electricity@2x.png",
-    text: "抄表"
+    icon: '/static/icons/water&electricity@2x.png',
+    text: '抄表',
+    url: ''
   },
   {
-    url: "/static/icons/feature@2x.png",
-    text: "更多"
+    icon: '/static/icons/feature@2x.png',
+    text: '更多',
+    url: ''
   }
 ]
 </script>
@@ -88,7 +98,9 @@ const icons = [
     @apply mt-3;
 
     &-item {
-      @apply flex flex-col text-center text-white;
+      .nav {
+        @apply flex flex-col text-center text-white;
+      }
 
       &__value {
         @apply pb-1;
@@ -128,7 +140,9 @@ const icons = [
     @apply home-card mt-2.5 flex justify-evenly;
 
     &-item {
-      @apply flex flex-col text-center;
+      .icon-link {
+        @apply flex flex-col text-center;
+      }
 
       &__icon {
         @apply mb-2;

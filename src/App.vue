@@ -13,5 +13,6 @@ onHide(() => {
 <style lang="scss">
 page {
   color: $uni-text-color;
+  @apply bg-blue-50 h-screen;
 }
 </style>

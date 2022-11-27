@@ -1,23 +1,52 @@
 {
-	"pages": [
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app",
-				"navigationStyle": "custom"
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"easycom": {
-		"autoscan": true,
-		"custom": {
-			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
-		}
-	}
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/list/renter",
+      "style": {
+        "navigationBarTitleText": "租客",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/list/bill",
+      "style": {
+        "navigationBarTitleText": "账单",
+        "enablePullDownRefresh": false
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  },
+  "condition": { // 开发配置
+    "current": 0,
+    "list": [
+      {
+        "name": "",
+        "path": "pages/index/index",
+        "query": ""
+      },
+      {
+        "name": "",
+        "path": "pages/list/renter",
+        "query": ""
+      }
+    ]
+  }
 }
