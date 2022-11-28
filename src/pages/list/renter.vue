@@ -6,43 +6,20 @@
 				<uni-segmented-control class="segmented" :current="0" :values="segmenteds" styleType="text" @clickItem="fun" />
 			</uni-nav-bar>
 		</view>
-		<!--todo 列表容器 -->
-		<swiper class="swiper" :current="index" disable-touch :interval="interval" :duration="duration">
-			<!-- 当前租客 -->
-			<swiper-item>
-				<view class="swiper-item">
-					<uni-swipe-action ref="swipeAction">
-						<uni-swipe-action-item class="mt-2" v-for="item in 5" :right-options="actions" :key="item">
-							<view class="content-box">
-								<uni-section class="rounded-md shadow-lg" title="老张" subTitle="电话：15975685135" titleFontSize="32rpx">
-									<template #right>
-										<uni-tag class="mr-2" text="2号房" type="success" circle />
-										<uni-tag text="租金：500元" type="primary" circle />
-									</template>
-								</uni-section>
-							</view>
-						</uni-swipe-action-item>
-					</uni-swipe-action>
+		<!--todo 列表 -->
+		<uni-swipe-action ref="swipeAction">
+			<uni-swipe-action-item class="mt-2" v-for="item in 5" :right-options="actions" :key="item">
+				<view class="content-box">
+					<uni-section class="rounded-md shadow-lg" title="老张" subTitle="电话：15975685135" titleFontSize="32rpx">
+						<template #right>
+							<uni-tag class="mr-2" text="2号房" type="success" circle />
+							<uni-tag text="租金：500元" type="primary" circle />
+						</template>
+					</uni-section>
 				</view>
-			</swiper-item>
-			<!--todo 历史租客 -->
-			<swiper-item>
-				<view class="swiper-item">
-					<uni-swipe-action ref="swipeAction">
-						<uni-swipe-action-item class="mt-2" v-for="item in 5" :right-options="actions" :key="item">
-							<view class="content-box">
-								<uni-section class="rounded-md shadow-lg" title="老张" subTitle="电话号码：15975685135" titleFontSize="32rpx">
-									<template #right>
-										<uni-tag class="mr-2" text="2号房" type="success" disabled circle />
-										<uni-tag text="租金：500元" type="primary" disabled circle />
-									</template>
-								</uni-section>
-							</view>
-						</uni-swipe-action-item>
-					</uni-swipe-action>
-				</view>
-			</swiper-item>
-		</swiper>
+			</uni-swipe-action-item>
+		</uni-swipe-action>
+	</view>
 	</view>
 </template>
 
