@@ -1,5 +1,6 @@
 {
   "pages": [
+    // 首页
     {
       "path": "pages/index/index",
       "style": {
@@ -7,6 +8,7 @@
         "enablePullDownRefresh": false
       }
     },
+    // 租客列表页
     {
       "path": "pages/list/renter",
       "style": {
@@ -14,10 +16,18 @@
         "enablePullDownRefresh": false
       }
     },
+    // 账单列表页
     {
       "path": "pages/list/bill",
       "style": {
         "navigationBarTitleText": "账单",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/meter/meter",
+      "style": {
+        "navigationBarTitleText": "抄表",
         "enablePullDownRefresh": false
       }
     }
@@ -35,16 +45,26 @@
     }
   },
   "condition": { // 开发配置
-    "current": 0,
+    "current": 2,
     "list": [
       {
-        "name": "",
+        "name": "首页",
         "path": "pages/index/index",
         "query": ""
       },
       {
-        "name": "",
+        "name": "租客列表页",
         "path": "pages/list/renter",
+        "query": ""
+      },
+      {
+        "name": "账单列表页",
+        "path": "pages/list/bill",
+        "query": ""
+      },
+      {
+        "name": "抄表页",
+        "path": "pages/meter/meter",
         "query": ""
       }
     ]

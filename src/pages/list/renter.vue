@@ -1,85 +1,74 @@
 <template>
-	<view class="renter-list">
-		<!-- 导航 -->
-		<view class="top">
-			<uni-nav-bar left-icon="left" statusBar @clickLeft="navBack">
-				<uni-segmented-control class="segmented" :current="0" :values="segmenteds" styleType="text" @clickItem="fun" />
-			</uni-nav-bar>
+	<view class="list-renter">
+		<!-- 导航栏 -->
+		<uni-nav-bar class="m-shadow"
+								 left-icon="left"
+								 status-bar>
+			<!--todo 分页器 -->
+			<view class="flex px-8 w-full">
+				<uni-segmented-control class="flex-1 self-end"
+															 :current="index"
+															 :values="segmented"
+															 style-type="text"
+															 @click-item="" />
+			</view>
+		</uni-nav-bar>
+		<!-- 内容 -->
+		<view class="main">
+			<uni-swipe-action class="renters pt-3">
+				<!--todo 卡片 -->
+				<uni-swipe-action-item :right-options="actions"
+															 @click=""
+															 v-for="item in 5"
+															 :key="item">
+					<view class="pb-3 px-3">
+						<view class="renters-item flex px-4 py-4 rounded-lg bg-white m-shadow">
+							<view class="right basis-7/12 flex flex-col">
+								<text class="renters-item__name mb-1 text-base font-semibold">
+									老张
+								</text>
+								<text class="renters-item__phone text-sm text-gray-400">
+									电话: 13568745219
+								</text>
+							</view>
+							<view class="left basis-5/12 flex justify-start items-center">
+								<view class="renters-item__tag mr-2 px-2 py-1 text-xs text-white bg-teal rounded-25">
+									<text class="">{{ 1 }}号房</text>
+								</view>
+								<view class="renters-item__tag px-2 py-1 text-xs text-white bg-blue rounded-25">
+									<text class="">租金:{{ 120 }}元</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</uni-swipe-action-item>
+			</uni-swipe-action>
 		</view>
-		<!--todo 列表 -->
-		<uni-swipe-action ref="swipeAction">
-			<uni-swipe-action-item class="mt-2" v-for="item in 5" :right-options="actions" :key="item">
-				<view class="content-box">
-					<uni-section class="rounded-md shadow-lg" title="老张" subTitle="电话：15975685135" titleFontSize="32rpx">
-						<template #right>
-							<uni-tag class="mr-2" text="2号房" type="success" circle />
-							<uni-tag text="租金：500元" type="primary" circle />
-						</template>
-					</uni-section>
-				</view>
-			</uni-swipe-action-item>
-		</uni-swipe-action>
-	</view>
 	</view>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue'
 
-const segmenteds = [
+//#region 导航
+const index = ref(0)
+const segmented = [
 	'当前租客',
 	'历史租客'
 ]
+//#endregion
 
-const index = ref(0)
-const fun = ({ currentIndex }) => {
-	index.value = currentIndex
-}
-
-const interval = 2000
-const duration = 100
-
+//#region 内容
 const actions = [
 	{
-		text: '置顶',
-		// style: { backgroundColor: 'green', }
-	},
-	{
 		text: '删除',
-		style: { backgroundColor: 'rgb(255,58,49)', }
+		style: {
+			backgroundColor: 'rgba(0,0,0,0)',
+			color: 'red'
+		}
 	}
 ]
-
-const navBack = () => {
-	uni.navigateBack({
-		delta: 1,
-		animationDuration: 50
-	})
-}
+//#endregion
 </script>
 
-<style lang="scss" scoped>
-.renter-list {
-	@apply flex flex-col h-screen;
-
-	.top {
-		@apply shadow-sm;
-
-		.segmented {
-			@apply px-8 w-full translate-y-2;
-		}
-	}
-
-	.swiper {
-		@apply flex-1;
-
-		.swiper-item {
-			@apply w-screen h-screen;
-
-			.content-box {
-				@apply px-2;
-			}
-		}
-	}
-}
-</style>
+<!-- <style lang="scss"></style> -->

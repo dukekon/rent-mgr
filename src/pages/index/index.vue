@@ -1,50 +1,55 @@
 <template>
   <view class="home">
-    <view class="header">
+    <view class="heaedr pt-10 px-6 pb-16 bg-blue-600">
       <!--todo 搜索 -->
-      <uni-search-bar :placeholder="searchTip" radius="25" cancelButton="none" />
-      <view class="house-info">
-        <uni-row>
-          <!--todo 房屋简讯 -->
-          <uni-col :span="8" class="house-info-item" v-for="(item, i) in houseInfo" :key="i">
-            <navigator class="nav" target="" url="/pages/list/renter" hover-class="navigator-hover"
-              open-type="navigate">
-              <text class="house-info-item__value" selectable="false" space="false" decode="false">
-                {{ i }}
-              </text>
-              <text class="house-info-item__text" selectable="false" space="false" decode="false">
-                {{ item }}
-              </text>
-            </navigator>
-          </uni-col>
-        </uni-row>
+      <uni-search-bar class="mb-3"
+                      :placeholder="searchTip"
+                      radius="25"
+                      cancelButton="none" />
+      <!--todo 房屋信息 -->
+      <view class="house-info flex flex-row justify-between px-4">
+        <view class="flex flex-col justify-center items-center text-white"
+              v-for="(item, i) in houseInfo"
+              :key="i">
+          <text class="mb-1">
+            {{ i }}
+          </text>
+          <text class="">
+            {{ item }}
+          </text>
+        </view>
       </view>
     </view>
-    <view class="main">
-      <!--todo 未交付提醒 -->
-      <view class="unpaid-notice">
-        <uni-row>
-          <uni-col :span="12" class="unpaid-notice-item" v-for="(item, i) in unpaidNotices" :key="i">
-            <text class="unpaid-notice-item__value" selectable="false" space="false" decode="false">
-              {{ i }}
-            </text>
-            <text class="unpaid-notice-item__text" selectable="false" space="false" decode="false">
-              {{ item }}
-            </text>
-          </uni-col>
-        </uni-row>
+    <!-- 内容 -->
+    <view class="main px-4">
+      <!--todo 通知 -->
+      <view class="notice flex flex-row -mt-10 mb-3 p-4 bg-white rounded-lg m-shadow">
+        <view class="flex-1 text-center text-lg"
+              :class="i < 1 ? 'text-green-500 border-r-1 border-gray-200' : 'text-red-500'"
+              v-for="(item, i) in notices"
+              :hover-stop-propagation="false"
+              :key="i">
+          <text class="mr-2 text-2xl font-bold">
+            {{ i }}
+          </text>
+          <text class="text-dark-100">
+            {{ item }}
+          </text>
+        </view>
       </view>
-      <!--todo 功能图标 -->
-      <view class="icons">
-        <view class="icons-item" v-for="(item, i) in icons" hover-class="none" :hover-stop-propagation="false" :key="i">
-          <navigator class="icon-link" target="" :url="item.url" hover-class="none" open-type="navigate"
-            :animation-duration="50">
-            <image class="w-12 icons-item__icon" :src="item.icon" mode="widthFix" lazy-load="false" binderror=""
-              bindload="" />
-            <text class="icons-item__text" selectable="false" space="false" decode="false">
-              {{ item.text }}
-            </text>
-          </navigator>
+      <!--todo 导航图标 -->
+      <view class="icons flex flex-row justify-evenly py-4 bg-white rounded-lg m-shadow">
+        <view class="flex flex-col text-center"
+              v-for="item in icons"
+              @click="handleClick(item.url)"
+              :key="item.text">
+          <image class="mb-3 w-12 h-12"
+                 :src="item.icon"
+                 mode="aspectFill">
+          </image>
+          <text class="">
+            {{ item.text }}
+          </text>
         </view>
       </view>
     </view>
@@ -52,19 +57,25 @@
 </template>
 
 <script lang="ts" setup>
+//#region 头部
+// 搜索
 const searchTip = '下午好！搜索租客？'
-
+// 房屋信息
 const houseInfo = [
   '现有租客',
   '空闲房间',
   '历史租客'
 ]
+//#endregion
 
-const unpaidNotices = [
+//#region 主要内容
+// 通知
+const notices = [
   '本月未收',
-  '逾期未付'
+  '逾期未交'
 ]
 
+// 导航
 const icons = [
   {
     icon: '/static/icons/renters@2x.png',
@@ -77,7 +88,7 @@ const icons = [
     url: '/pages/list/bill'
   },
   {
-    icon: '/static/icons/water&electricity@2x.png',
+    icon: '/static/icons/meter@2x.png',
     text: '抄表',
     url: ''
   },
@@ -87,67 +98,13 @@ const icons = [
     url: ''
   }
 ]
+
+const handleClick = (url: string) => {
+  uni.navigateTo({
+    url
+  })
+}
+//#endregion
 </script>
 
-<style lang="scss" scoped>
-.header {
-  @apply pt-10 pb-17 px-5 bg-blue-500;
 
-  // 房屋信息
-  .house-info {
-    @apply mt-3;
-
-    &-item {
-      .nav {
-        @apply flex flex-col text-center text-white;
-      }
-
-      &__value {
-        @apply pb-1;
-      }
-    }
-  }
-}
-
-.main {
-  @apply mx-4;
-
-  // 未付通知
-  .unpaid-notice {
-    @apply home-card -mt-10 text-center font-bold;
-
-    &-item {
-      &__value {
-        @apply mr-2 text-2xl text-red-500;
-      }
-
-      &__text,
-      &__value {
-        @apply align-middle
-      }
-
-      &:first-child {
-        @apply border-r-1 border-gray-200;
-
-        & .unpaid-notice-item__value {
-          @apply text-green-500;
-        }
-      }
-    }
-  }
-
-  .icons {
-    @apply home-card mt-2.5 flex justify-evenly;
-
-    &-item {
-      .icon-link {
-        @apply flex flex-col text-center;
-      }
-
-      &__icon {
-        @apply mb-2;
-      }
-    }
-  }
-}
-</style>

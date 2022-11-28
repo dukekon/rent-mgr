@@ -14,7 +14,7 @@ export default defineConfig({
       transformerDirectives(),
     ],
     shortcuts: {
-      'home-card': 'py-5 rounded-lg bg-white shadow-lg'
+      'm-shadow': 'shadow-md shadow-gray/20'
     }
   })],
   optimizeDeps: {
